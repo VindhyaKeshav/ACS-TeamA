@@ -1,0 +1,67 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="index.js"></script>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <h1>Rhythmic Vibes</h1>
+
+  <div class="content">
+    <div class="inner">
+      <div class="dropdown-container">
+        <label for="numOfRecords" class="dropdown">Num of Records </label>
+        <select id="numOfRecords">
+          <option value="100">100</option>
+          <option value="5000">5000</option>
+          <option value="10000">10000</option>
+        </select>
+      </div>
+      <div class="dropdown-container">
+        <label for="database" class="dropdown">Choose Database </label>
+        <select id="database">
+          <option value="firestore">Google Cloud Firestore</option>
+          <option value="sql">Google Cloud SQL</option>
+        </select>
+      </div>
+      <button id="loadDataButton" onclick="loadData()">Load Data</button>
+    </div>
+    <div>
+      <div id="dataContainerFirestore" class="dataContainer" style="display: none;"></div>
+      <div id="dataContainerSql" class="dataContainer" style="display: none;"></div>
+    </div>
+  </div>
+
+  <div class="search-content">
+    <div class="inner">
+    <input type="text" id="song" name="song" placeholder="Song" />
+    <input type="text" id="artist" name="artist" placeholder="Artist" />
+    <input type="text" id="year" name="year" placeholder="Year" />
+    <select id="operator">
+      <option value="=">Equal</option>
+      <option value=">">Greater</option>
+      <option value="<">Lesser</option>
+    </select>
+    <select id="database-search">
+      <option value="firestore">Google Cloud Firestore</option>
+      <option value="sql">Google Cloud SQL</option>
+    </select>
+    <button id="search-button" onclick="queryData()">
+      Search
+    </button>
+  </div>
+    <div>
+      <div id="dataContainerFirestore-search" class="dataContainer" style="display: none;"></div>
+      <div id="dataContainerSql-search" class="dataContainer" style="display: none;"></div>
+    </div>
+  </div>
+  <div class="results">
+    <table id="myTable">
+      <!-- Table content will be added dynamically using JavaScript -->
+    </table>
+  </div>
+</body>
+
+</html>
